@@ -63,10 +63,19 @@ export default function Contact() {
     if (!canSubmit) return;
     setSending(true);
     try {
-      // Fallback: open email client prefilled
-      window.location.href = mailto;
-      // Simulate success state for UX
-      setTimeout(() => setSent(true), 300);
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message, services, budget, timeline }),
+      });
+      if (res.ok) {
+        setSent(true);
+        setStep(3);
+      } else {
+        // Graceful fallback to mailto if server not configured
+        window.location.href = mailto;
+        setTimeout(() => setSent(true), 300);
+      }
     } finally {
       setSending(false);
     }

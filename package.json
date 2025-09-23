@@ -11,6 +11,7 @@
   "dependencies": {
     "framer-motion": "^11.0.0",
     "next": "latest",
+    "resend": "^4.0.0",
     "react": "latest",
     "react-dom": "latest",
     "react-icons": "^5.2.1"
