@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base resets */
+html, body {
+  @apply scroll-smooth antialiased;
+}
+
+/* Utility: Glass panel */
+.glass {
+  background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,255,255,0.4));
+  backdrop-filter: saturate(180%) blur(12px);
+}
+
+/* Underline animation */
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, theme('colors.primary.DEFAULT'), theme('colors.purple.DEFAULT'));
+  transition: width 200ms ease;
+}
+.link-underline:hover::after { width: 100%; }
+
+/* Section paddings */
+.section {
+  @apply py-20 md:py-28;
+}
+
+/* Respect users preferring reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
