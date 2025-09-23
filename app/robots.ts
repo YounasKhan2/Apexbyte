@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://apexbyte.example/sitemap.xml",
+    sitemap: "https://apexbyte.vercel.app/sitemap.xml",
   };
 }

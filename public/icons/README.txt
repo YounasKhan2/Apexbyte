@@ -1,0 +1,1 @@
+Place production PNG icons here (192x192, 512x512). For now, app relies on SVG icon at /icon.svg.

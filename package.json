@@ -6,21 +6,25 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "postinstall": "next telemetry disable || exit 0"
+    "postinstall": "next telemetry disable || exit 0",
+    "icons": "node ./scripts/generate-icons.mjs"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.5.0",
+    "@vercel/speed-insights": "^1.2.0",
     "framer-motion": "^11.0.0",
     "next": "latest",
-    "resend": "^4.0.0",
     "react": "latest",
     "react-dom": "latest",
-    "react-icons": "^5.2.1"
+    "react-icons": "^5.2.1",
+    "resend": "^4.0.0"
   },
   "devDependencies": {
     "@types/node": "^20.10.6",
     "@types/react": "^18.2.28",
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.31",
+    "sharp": "^0.33.4",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.0"
   }

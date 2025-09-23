@@ -31,7 +31,7 @@ html, body {
 
 /* Section paddings */
 .section {
-  @apply py-20 md:py-28;
+  @apply py-16 sm:py-20 md:py-24 lg:py-28;
 }
 
 /* Respect users preferring reduced motion */

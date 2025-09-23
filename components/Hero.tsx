@@ -3,7 +3,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const words = ["Web Apps", "Mobile Apps", "AI Solutions"];
-const projectImages = [1, 2, 3, 4, 5, 6];
+const projectImages = [
+  { src: "https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1600&auto=format&fit=crop", title: "SaaS Dashboard" },
+  { src: "https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1600&auto=format&fit=crop", title: "E‑commerce Storefront" },
+  { src: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1600&auto=format&fit=crop", title: "Marketing Website" },
+  { src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1600&auto=format&fit=crop", title: "Product Landing Page" },
+  { src: "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1600&auto=format&fit=crop", title: "Mobile App UI" },
+  { src: "https://images.unsplash.com/photo-1526481280698-8fcc13fded2a?q=80&w=1600&auto=format&fit=crop", title: "Portfolio Showcase" },
+];
 
 export default function Hero() {
   const [index, setIndex] = useState(0);
@@ -74,8 +81,8 @@ export default function Hero() {
           </div>
         </motion.div>
         <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.1 }} className="relative">
-          <div className="rounded-3xl overflow-hidden shadow-soft">
-            <div className="relative h-72 sm:h-80 md:h-96 lg:h-[28rem] overflow-hidden">
+          <div className="rounded-3xl overflow-hidden">
+            <div className="relative h-64 sm:h-72 md:h-96 lg:h-[28rem] overflow-hidden">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={projIndex}
@@ -86,16 +93,18 @@ export default function Hero() {
                   className="absolute inset-0"
                 >
                   <motion.img
-                    src={`/portfolio/${projectImages[projIndex]}.jpg`}
-                    alt={`Project ${projectImages[projIndex]}`}
+                    src={projectImages[projIndex].src}
+                    alt={projectImages[projIndex].title}
                     loading="eager"
+                    decoding="async"
+                    fetchPriority={projIndex === 0 ? "high" : "auto"}
                     className="h-full w-full object-cover will-change-transform"
                     initial={{ scale: 1 }}
                     animate={{ scale: 1.08 }}
                     transition={{ duration: 6, ease: "linear" }}
                   />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
-                  <div className="absolute left-3 top-3 rounded-full bg-white/80 px-3 py-1 text-xs font-medium text-slate-700 backdrop-blur">Project {projectImages[projIndex]}</div>
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+                  <div className="absolute left-3 top-3 rounded-full bg-black/40 text-white px-3 py-1 text-xs font-medium backdrop-blur">{projectImages[projIndex].title}</div>
                 </motion.div>
               </AnimatePresence>
             </div>
