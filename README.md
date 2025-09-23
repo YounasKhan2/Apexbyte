@@ -51,3 +51,4 @@ CONTACT_FROM_EMAIL=onboarding@resend.dev
 ## Notes
 - Placeholder SVG/PNG assets are in `public/portfolio` and `public/avatars`.
 - Tailwind theme and fonts are configured in `tailwind.config.ts` and `app/layout.tsx`.
+- Favicon lives at `app/icon.svg`. Replace with your own SVG or add `app/icon.png` (512×512) and Next.js will generate favicons automatically.

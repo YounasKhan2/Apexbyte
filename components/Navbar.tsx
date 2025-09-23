@@ -23,7 +23,7 @@ export default function Navbar() {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all ${scrolled ? "bg-white/80 backdrop-blur-md shadow-soft" : ""}`}>
       <nav className="container flex items-center justify-between py-4">
         <Link href="#home" className="flex items-center gap-2">
-          <div className="h-8 w-8 rounded-2xl bg-gradient-to-br from-primary to-purple animate-float" />
+          <img src="/icon.svg" alt="ApexByte logo" className="h-8 w-8 animate-float" loading="eager" />
           <span className="font-heading text-xl tracking-tight">ApexByte</span>
         </Link>
         <ul className="hidden md:flex items-center gap-8 text-sm">

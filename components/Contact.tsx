@@ -168,14 +168,20 @@ export default function Contact() {
           </form>
         </motion.div>
 
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }} className="space-y-6">
-          <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="space-y-6 md:space-y-0 md:grid md:grid-rows-[1fr_auto_auto_1fr] md:gap-3"
+        >
+          <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft md:row-start-2">
             <div className="font-heading">Contact info</div>
             <div className="mt-2 text-sm text-slate-700"><a className="link-underline" href="mailto:apexbyte63@gmail.com">apexbyte63@gmail.com</a></div>
             <div className="text-sm text-slate-700"><a className="link-underline" href="tel:+923130812324">+92 313 0812324</a></div>
             <div className="text-sm text-slate-600">Pakistan — serving clients worldwide</div>
           </div>
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-3 gap-3 md:row-start-3">
             <a className="group flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white p-3 hover:shadow-glow" href="mailto:apexbyte63@gmail.com" aria-label="Email">
               <FiMail className="h-5 w-5 text-slate-700 group-hover:text-primary" /> Email
             </a>
