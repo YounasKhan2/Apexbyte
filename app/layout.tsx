@@ -4,6 +4,8 @@ import { Inter, Poppins } from "next/font/google";
 import InstallPrompt from "../components/InstallPrompt";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import GATracker from "../components/GATracker";
+import { Suspense } from "react";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "700"], variable: "--font-poppins" });
@@ -28,6 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_PK",
+    alternateLocale: ["en_US", "en_GB", "ar_AE"],
   url: "https://apexbyte.vercel.app/",
     siteName: "ApexByte",
     title: "ApexByte — Pakistan Software Agency | Web • Mobile • AI",
@@ -46,6 +49,23 @@ export const metadata: Metadata = {
   },
   alternates: {
   canonical: "https://apexbyte.vercel.app/",
+  languages: {
+    "en-PK": "/",
+    "en-US": "/",
+    "en-GB": "/",
+    "ar-AE": "/",
+  },
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
   },
 };
 
@@ -78,6 +98,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             });
           }
         `}} />
+        {/* GA4 (free) */}
+        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ? (
+          <>
+            <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`} />
+            <script dangerouslySetInnerHTML={{ __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);} 
+              gtag('js', new Date());
+              gtag('config', '${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}', { send_page_view: false });
+            ` }} />
+          </>
+        ) : null}
         <script
           type="application/ld+json"
           suppressHydrationWarning
@@ -106,7 +138,30 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             }),
           }}
         />
+        <script
+          type="application/ld+json"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "ApexByte",
+              url: "https://apexbyte.vercel.app/",
+              potentialAction: {
+                "@type": "SearchAction",
+                target: {
+                  "@type": "EntryPoint",
+                  urlTemplate: "https://apexbyte.vercel.app/?q={search_term_string}"
+                },
+                queryInput: "required name=search_term_string"
+              }
+            }),
+          }}
+        />
             <InstallPrompt />
+            <Suspense fallback={null}>
+              <GATracker />
+            </Suspense>
             <Analytics />
             <SpeedInsights />
         {children}

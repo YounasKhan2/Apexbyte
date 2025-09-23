@@ -64,7 +64,7 @@ export default function Services() {
             >
               <div className={`pointer-events-none absolute inset-0 bg-gradient-to-b ${s.accent}`} />
               <div className="relative flex items-center gap-3">
-                <s.icon className="h-6 w-6 text-slate-800" />
+                <s.icon className="h-5 w-5 text-slate-800" aria-hidden="true" focusable="false" />
                 <h3 className="font-heading text-base md:text-lg">{s.title}</h3>
               </div>
               <p className="relative mt-2 text-xs md:text-sm text-slate-600">{s.desc}</p>

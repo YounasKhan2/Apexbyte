@@ -56,7 +56,7 @@ export default function Footer() {
         <div className="container flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
           <div className="text-sm text-slate-500">© {new Date().getFullYear()} ApexByte. All rights reserved.</div>
           <div className="flex gap-4 text-sm text-slate-500">
-            <a className="hover:text-slate-700" href="#">Privacy</a>
+            <a className="hover:text-slate-700" href="/privacy">Privacy</a>
             <a className="hover:text-slate-700" href="#">Terms</a>
           </div>
         </div>

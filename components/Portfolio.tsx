@@ -35,7 +35,7 @@ export default function Portfolio() {
   }, [active]);
 
   return (
-    <section id="portfolio" className="section">
+  <section id="portfolio" className="section" aria-label="Selected work">
       <div className="container">
         <div className="mb-10 flex items-end justify-between">
           <div>
@@ -44,23 +44,28 @@ export default function Portfolio() {
           </div>
           <a href="#contact" className="hidden md:inline text-sm link-underline">Work with us</a>
         </div>
-        <div className="relative overflow-hidden">
+  <div className="relative overflow-hidden" role="region" aria-roledescription="carousel" aria-label="Portfolio items">
           <motion.div
             className="flex"
             drag="x"
             style={{ x: springX }}
             dragConstraints={{ left: -(trackWidth - (cardWidth + gap) * 2), right: 0 }}
             dragElastic={0.08}
+            role="listbox"
+            aria-live="polite"
           >
             {items.map((item, i) => (
               <motion.div
                 key={item.id}
-                className="group relative mr-4 w-[320px] shrink-0 overflow-hidden rounded-3xl border border-slate-200 bg-white"
+                className="group relative mr-4 w-[320px] shrink-0 overflow-hidden rounded-3xl border border-slate-200 bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
                 whileHover={{ y: -4 }}
                 transition={{ type: "spring", stiffness: 300, damping: 26 }}
+                role="option"
+                aria-selected={i === active}
+                tabIndex={0}
               >
                 <div className="relative h-60 overflow-hidden">
-                  <img loading="lazy" src={item.img} alt={item.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                  <img loading="lazy" src={item.img} alt={`${item.title} preview`} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
                 </div>
                 <div className="p-5">
                   <div className="font-heading">{item.title}</div>
@@ -74,12 +79,12 @@ export default function Portfolio() {
           <div className="mt-4 flex items-center justify-between">
             <div className="flex items-center gap-2">
               {items.map((_, i) => (
-                <button key={i} onClick={() => snapTo(i)} className={`h-2 w-2 rounded-full ${i === active ? "bg-primary" : "bg-slate-300"}`} aria-label={`Go to slide ${i + 1}`} />
+                <button key={i} onClick={() => snapTo(i)} className={`h-2 w-2 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 ${i === active ? "bg-primary" : "bg-slate-300"}`} aria-label={`Go to slide ${i + 1}`} aria-controls="portfolio-track" />
               ))}
             </div>
             <div className="flex gap-2">
-              <button onClick={() => snapTo(active - 1)} className="rounded-2xl border border-slate-200 bg-white px-3 py-2 text-sm">Prev</button>
-              <button onClick={() => snapTo(active + 1)} className="rounded-2xl border border-slate-200 bg-white px-3 py-2 text-sm">Next</button>
+              <button onClick={() => snapTo(active - 1)} className="rounded-2xl border border-slate-200 bg-white px-3 py-2 text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40" aria-label="Previous slide">Prev</button>
+              <button onClick={() => snapTo(active + 1)} className="rounded-2xl border border-slate-200 bg-white px-3 py-2 text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40" aria-label="Next slide">Next</button>
             </div>
           </div>
         </div>

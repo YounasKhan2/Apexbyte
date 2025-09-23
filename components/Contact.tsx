@@ -1,6 +1,7 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
 import { useMemo, useState } from "react";
+import { track } from "../lib/analytics";
 import { FiMail, FiPhone, FiMessageCircle, FiArrowRight, FiCheck } from "react-icons/fi";
 
 type Step = 1 | 2 | 3;
@@ -127,7 +128,7 @@ export default function Contact() {
                       </div>
                     </div>
                     <div className="mt-5 flex justify-end">
-                      <button type="button" disabled={!canContinue1} onClick={() => setStep(2)} className={`inline-flex items-center gap-2 rounded-2xl px-4 py-2 text-sm text-white ${canContinue1 ? "bg-slate-900 hover:shadow-glow" : "bg-slate-400"}`}>
+                      <button type="button" disabled={!canContinue1} onClick={() => { setStep(2); track('form_step', { step: 2, from: 1 }); }} className={`inline-flex items-center gap-2 rounded-2xl px-4 py-2 text-sm text-white ${canContinue1 ? "bg-slate-900 hover:shadow-glow" : "bg-slate-400"}`}>
                         Continue <FiArrowRight />
                       </button>
                     </div>
@@ -145,12 +146,14 @@ export default function Contact() {
                       <textarea aria-label="Message" value={message} onChange={(e) => setMessage(e.target.value)} className="rounded-2xl border border-slate-200 bg-white px-4 py-3 outline-none focus:ring-2 focus:ring-primary/30" placeholder="Tell us about your project" rows={5} />
                     </div>
                     <div className="mt-5 flex items-center justify-between">
-                      <button type="button" onClick={() => setStep(1)} className="text-sm text-slate-600">Back</button>
-                      <button type="submit" disabled={!canSubmit || sending} className={`inline-flex items-center gap-2 rounded-2xl px-4 py-2 text-sm text-white ${canSubmit ? "bg-primary hover:opacity-95" : "bg-slate-400"}`}>
+                      <button type="button" onClick={() => { setStep(1); track('form_step', { step: 1, from: 2 }); }} className="text-sm text-slate-600">Back</button>
+                      <button type="submit" disabled={!canSubmit || sending} onClick={() => track('form_submit_click')} className={`inline-flex items-center gap-2 rounded-2xl px-4 py-2 text-sm text-white ${canSubmit ? "bg-primary hover:opacity-95" : "bg-slate-400"}`}>
                         {sending ? "Sending..." : "Send message"}
                       </button>
                     </div>
-                    <div className="mt-3 text-xs text-slate-500">We’ll never share your info. You’ll hear from us within 24 hours.</div>
+                    <div className="mt-3 text-xs text-slate-500">
+                      We reply within 24 hours. Your data stays private. See our <a className="underline underline-offset-2" href="/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.
+                    </div>
                   </div>
                 </motion.div>
               )}
@@ -182,13 +185,13 @@ export default function Contact() {
             <div className="text-sm text-slate-600">Pakistan — serving clients worldwide</div>
           </div>
           <div className="grid grid-cols-3 gap-3 md:row-start-3">
-            <a className="group flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white p-3 hover:shadow-glow" href="mailto:apexbyte63@gmail.com" aria-label="Email">
+            <a className="group flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white p-3 hover:shadow-glow" href="mailto:apexbyte63@gmail.com" aria-label="Email" onClick={() => track('contact_click', { channel: 'email' })}>
               <FiMail className="h-5 w-5 text-slate-700 group-hover:text-primary" /> Email
             </a>
-            <a className="group flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white p-3 hover:shadow-glow" href="tel:+923130812324" aria-label="Phone">
+            <a className="group flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white p-3 hover:shadow-glow" href="tel:+923130812324" aria-label="Phone" onClick={() => track('contact_click', { channel: 'phone' })}>
               <FiPhone className="h-5 w-5 text-slate-700 group-hover:text-primary" /> Call
             </a>
-            <a className="group flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white p-3 hover:shadow-glow" href="https://wa.me/923130812324?text=Hi%20ApexByte%2C%20I%27d%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+            <a className="group flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white p-3 hover:shadow-glow" href="https://wa.me/923130812324?text=Hi%20ApexByte%2C%20I%27d%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" onClick={() => track('contact_click', { channel: 'whatsapp' })}>
               <FiMessageCircle className="h-5 w-5 text-slate-700 group-hover:text-primary" /> WhatsApp
             </a>
           </div>

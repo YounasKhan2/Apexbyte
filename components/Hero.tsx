@@ -1,4 +1,5 @@
 "use client";
+import { track } from "../lib/analytics";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 
@@ -76,8 +77,8 @@ export default function Hero() {
             We help startups and brands ship user‑loved products. From strategy and design to development and launch — we handle the heavy lifting so you can focus on growth.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <a href="#contact" className="rounded-2xl bg-primary text-white px-5 py-3 shadow-glow hover:opacity-95 transition-transform will-change-transform hover:-translate-y-0.5">Get a free quote</a>
-            <a href="#portfolio" className="rounded-2xl border border-slate-200 px-5 py-3 hover:shadow-soft transition-transform will-change-transform hover:-translate-y-0.5">See our work</a>
+            <a href="#contact" onClick={() => track('cta_click', { source: 'hero', label: 'free_quote' })} className="rounded-2xl bg-primary text-white px-5 py-3 shadow-glow hover:opacity-95 transition-transform will-change-transform hover:-translate-y-0.5">Get a free quote</a>
+            <a href="#portfolio" onClick={() => track('cta_click', { source: 'hero', label: 'see_work' })} className="rounded-2xl border border-slate-200 px-5 py-3 hover:shadow-soft transition-transform will-change-transform hover:-translate-y-0.5">See our work</a>
           </div>
         </motion.div>
         <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.1 }} className="relative">

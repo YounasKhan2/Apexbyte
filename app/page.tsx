@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
+import TrustBar from "../components/TrustBar";
 import dynamic from "next/dynamic";
 const Services = dynamic(() => import("../components/Services"), { ssr: true });
 const Portfolio = dynamic(() => import("../components/Portfolio"), { ssr: true });
@@ -14,6 +15,7 @@ export default function HomePage() {
       <Navbar />
       <div className="pt-20" />
       <Hero />
+  <TrustBar />
       <Services />
       <Portfolio />
       <About />
