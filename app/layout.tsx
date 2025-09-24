@@ -9,9 +9,10 @@ import { Suspense } from "react";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "700"], variable: "--font-poppins" });
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://apexbyte.vercel.app";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://apexbyte.vercel.app"),
+  metadataBase: new URL(SITE_URL || "https://apexbyte.vercel.app"),
   title: {
     default: "ApexByte — Software Agency Pakistan | Web, Mobile, AI",
     template: "%s | ApexByte",
@@ -48,7 +49,7 @@ export const metadata: Metadata = {
   images: ["/og.svg"],
   },
   alternates: {
-  canonical: "https://apexbyte.vercel.app/",
+    canonical: "https://apexbyte.vercel.app/",
   languages: {
     "en-PK": "/",
     "en-US": "/",

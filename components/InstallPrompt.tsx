@@ -6,11 +6,13 @@ export default function InstallPrompt() {
   const [show, setShow] = useState(false);
   const [isIos, setIsIos] = useState(false);
   const [isStandalone, setIsStandalone] = useState(false);
+  const [cooldownActive, setCooldownActive] = useState(false);
 
   useEffect(() => {
     const dismissedAt = Number(localStorage.getItem("installPromptDismissedAt") || 0);
     const coolOff = 1000 * 60 * 60 * 24 * 7; // 7 days
     const withinCooldown = Date.now() - dismissedAt < coolOff;
+    setCooldownActive(withinCooldown);
 
     const ua = typeof navigator !== "undefined" ? navigator.userAgent.toLowerCase() : "";
     const iOS = /iphone|ipad|ipod/.test(ua);
@@ -22,6 +24,7 @@ export default function InstallPrompt() {
       e.preventDefault();
       setDeferred(e);
       if (!withinCooldown) setShow(true);
+      else setShow(false);
     };
     const onAppInstalled = () => {
       setShow(false);
@@ -36,7 +39,7 @@ export default function InstallPrompt() {
   }, []);
 
   // For iOS Safari there is no beforeinstallprompt, show instructions if not installed
-  const shouldShowIosHint = isIos && !isStandalone && !deferred;
+  const shouldShowIosHint = isIos && !isStandalone && !deferred && !cooldownActive;
   if (!show && !shouldShowIosHint) return null;
 
   const InfoBox = (
@@ -70,6 +73,7 @@ export default function InstallPrompt() {
               className="rounded-xl border border-slate-200 px-3 py-1.5 text-sm"
               onClick={() => {
                 localStorage.setItem("installPromptDismissedAt", String(Date.now()));
+                setCooldownActive(true);
                 setShow(false);
               }}
             >
@@ -103,6 +107,7 @@ export default function InstallPrompt() {
               className="rounded-xl border border-slate-200 px-3 py-1.5 text-xs"
               onClick={() => {
                 localStorage.setItem("installPromptDismissedAt", String(Date.now()));
+                setCooldownActive(true);
                 setShow(false);
               }}
             >
@@ -117,6 +122,7 @@ export default function InstallPrompt() {
               className="rounded-xl border border-slate-200 px-3 py-1.5 text-xs md:text-sm"
               onClick={() => {
                 localStorage.setItem("installPromptDismissedAt", String(Date.now()));
+                setCooldownActive(true);
                 setShow(false);
               }}
             >

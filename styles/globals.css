@@ -43,3 +43,19 @@ html, body {
     scroll-behavior: auto !important;
   }
 }
+
+/* Marquee animation */
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  display: flex;
+  gap: 1rem; /* 16px to match existing gap */
+  width: max-content;
+  animation: marquee-left linear infinite;
+}
+
+.marquee:hover .marquee-track { animation-play-state: paused; }
+

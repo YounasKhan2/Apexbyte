@@ -66,24 +66,44 @@ export default function Hero() {
           <circle cx="350" cy="350" r="200" stroke="url(#g1)" strokeWidth="1" />
         </svg>
       </div>
-      <div className="container grid gap-10 md:grid-cols-2 items-center">
+      <div className="container grid items-center gap-12 md:grid-cols-2">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-          <h1 className="font-heading text-4xl md:text-6xl leading-tight tracking-tight">
+          <div className="mb-3 text-xs font-medium uppercase tracking-widest text-primary">ApexByte • Web • Mobile • AI</div>
+          <h1 className="font-heading text-4xl leading-tight tracking-tight md:text-6xl">
             We craft premium
-            <span className="ml-3 rounded-2xl bg-slate-100 px-3 py-1 text-primary shadow-inner ring-1 ring-primary/10">{display}</span>
-            faster — and better
+            <span className="ml-3 bg-gradient-to-r from-primary to-purple bg-clip-text text-transparent">{display}</span>
+            <span className="ml-2">faster — and better</span>
           </h1>
-          <p className="mt-6 text-slate-600 max-w-xl">
-            We help startups and brands ship user‑loved products. From strategy and design to development and launch — we handle the heavy lifting so you can focus on growth.
+          <p className="mt-5 max-w-xl text-slate-600">
+            We help startups and brands ship user‑loved products. From strategy and design to development and launch — we handle
+            the heavy lifting so you can focus on growth.
           </p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <a href="#contact" onClick={() => track('cta_click', { source: 'hero', label: 'free_quote' })} className="rounded-2xl bg-primary text-white px-5 py-3 shadow-glow hover:opacity-95 transition-transform will-change-transform hover:-translate-y-0.5">Get a free quote</a>
-            <a href="#portfolio" onClick={() => track('cta_click', { source: 'hero', label: 'see_work' })} className="rounded-2xl border border-slate-200 px-5 py-3 hover:shadow-soft transition-transform will-change-transform hover:-translate-y-0.5">See our work</a>
+          <div className="mt-5 flex flex-wrap gap-2">
+            {['Next.js', 'React Native', 'Shopify', 'AI / ML'].map((t) => (
+              <span key={t} className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-700 shadow-sm">{t}</span>
+            ))}
           </div>
+          <div className="mt-7 flex flex-wrap gap-4">
+            <a
+              href="#contact"
+              onClick={() => track('cta_click', { source: 'hero', label: 'free_quote' })}
+              className="rounded-2xl bg-slate-900 px-5 py-3 text-white shadow-glow transition-transform will-change-transform hover:-translate-y-0.5 hover:opacity-95"
+            >
+              Get a free quote
+            </a>
+            <a
+              href="#portfolio"
+              onClick={() => track('cta_click', { source: 'hero', label: 'see_work' })}
+              className="rounded-2xl border border-slate-200 px-5 py-3 transition-transform will-change-transform hover:-translate-y-0.5 hover:shadow-soft"
+            >
+              See our work
+            </a>
+          </div>
+          <div className="mt-3 text-xs text-slate-500">Free estimate in 24h • NDA on request</div>
         </motion.div>
         <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.1 }} className="relative">
-          <div className="rounded-3xl overflow-hidden">
-            <div className="relative h-64 sm:h-72 md:h-96 lg:h-[28rem] overflow-hidden">
+          <div className="relative overflow-hidden rounded-3xl ring-1 ring-slate-200/70 shadow-soft bg-white">
+            <div className="relative h-64 overflow-hidden sm:h-72 md:h-96 lg:h-[28rem]">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={projIndex}
@@ -105,11 +125,30 @@ export default function Hero() {
                     transition={{ duration: 6, ease: "linear" }}
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
-                  <div className="absolute left-3 top-3 rounded-full bg-black/40 text-white px-3 py-1 text-xs font-medium backdrop-blur">{projectImages[projIndex].title}</div>
+                  <div className="absolute left-3 top-3 rounded-full bg-black/40 px-3 py-1 text-xs font-medium text-white backdrop-blur">
+                    {projectImages[projIndex].title}
+                  </div>
                 </motion.div>
               </AnimatePresence>
             </div>
           </div>
+          {/* Floating stat chips */}
+          <motion.div
+            className="absolute -right-4 top-6 rounded-2xl border border-white/20 bg-white/70 px-3 py-2 text-xs text-slate-700 shadow-soft backdrop-blur"
+            initial={{ y: 0 }}
+            animate={{ y: [0, -6, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          >
+            Avg. NPS 67
+          </motion.div>
+          <motion.div
+            className="absolute -left-4 bottom-6 rounded-2xl border border-white/20 bg-white/70 px-3 py-2 text-xs text-slate-700 shadow-soft backdrop-blur"
+            initial={{ y: 0 }}
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          >
+            150+ features shipped
+          </motion.div>
           <div className="absolute -bottom-6 -left-6 h-14 w-14 rounded-2xl bg-highlight/80 blur-md" />
         </motion.div>
       </div>
