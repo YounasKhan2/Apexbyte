@@ -25,10 +25,10 @@ export default function Footer() {
           <div>
             <div className="font-heading mb-3">Company</div>
             <ul className="space-y-2 text-sm text-slate-600">
-              <li><a className="hover:text-slate-900" href="#home">Home</a></li>
-              <li><a className="hover:text-slate-900" href="#about">About</a></li>
-              <li><a className="hover:text-slate-900" href="#portfolio">Portfolio</a></li>
-              <li><a className="hover:text-slate-900" href="#contact">Contact</a></li>
+              <li><a className="hover:text-slate-900" href="/">Home</a></li>
+              <li><a className="hover:text-slate-900" href="/#about">About</a></li>
+              <li><a className="hover:text-slate-900" href="/#portfolio">Portfolio</a></li>
+              <li><a className="hover:text-slate-900" href="/#contact">Contact</a></li>
             </ul>
           </div>
 
@@ -57,7 +57,7 @@ export default function Footer() {
           <div className="text-sm text-slate-500">© {new Date().getFullYear()} ApexByte. All rights reserved.</div>
           <div className="flex gap-4 text-sm text-slate-500">
             <a className="hover:text-slate-700" href="/privacy">Privacy</a>
-            <a className="hover:text-slate-700" href="#">Terms</a>
+            <a className="hover:text-slate-700" href="/terms">Terms</a>
           </div>
         </div>
       </div>
