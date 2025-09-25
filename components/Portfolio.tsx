@@ -58,9 +58,9 @@ export default function Portfolio() {
             {loopItems.map((item, idx) => (
               <div
                 key={`${item.id}-${idx}`}
-                className="group relative mr-4 w-[370x] shrink-0 overflow-hidden rounded-3xl border border-slate-200 bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+                className="group relative mr-4 w-[85vw] max-w-xs sm:w-72 md:w-80 lg:w-[320px] shrink-0 overflow-hidden rounded-3xl border border-slate-200 bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
               >
-                <div className="relative h-72 overflow-hidden">
+                <div className="relative h-48 sm:h-56 md:h-64 lg:h-72 overflow-hidden">
                   <img
                     loading="lazy"
                     src={item.img}
@@ -68,9 +68,9 @@ export default function Portfolio() {
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
-                <div className="p-5">
-                  <div className="font-heading">{item.title}</div>
-                  <div className="text-sm text-slate-600">{item.desc}</div>
+                <div className="p-4 sm:p-5">
+                  <div className="font-heading text-base sm:text-lg">{item.title}</div>
+                  <div className="text-xs sm:text-sm text-slate-600">{item.desc}</div>
                 </div>
               </div>
             ))}
