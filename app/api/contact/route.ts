@@ -1,9 +1,9 @@
 import { NextRequest } from "next/server";
 import { Resend } from "resend";
 
-const resendApiKey = 're_ZG9SQzxC_3gTzujsA2NTJdhNfPPZS8Drv';
-const recipient = "cubixbyte@gmail.com";
-const fromEmail = "onboarding@resend.dev";
+const resendApiKey = process.env.RESEND_API_KEY;
+const recipient = process.env.CONTACT_RECIPIENT_EMAIL;
+const fromEmail = process.env.CONTACT_FROM_EMAIL;
 
 function escapeHtml(input: string) {
   return input
@@ -95,9 +95,12 @@ export async function POST(req: NextRequest) {
         </table>
       </div>`;
 
+    if (!recipient) {
+      return Response.json({ error: "Recipient email not configured" }, { status: 503 });
+    }
     const result = await resend.emails.send({
       from: `CubixByte <${fromEmail}>`,
-      to: [recipient],
+      to: [recipient as string],
       replyTo: email,
       subject,
       text,
