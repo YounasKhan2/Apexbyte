@@ -1,9 +1,9 @@
 import { NextRequest } from "next/server";
 import { Resend } from "resend";
 
-const resendApiKey = process.env.RESEND_API_KEY;
-const recipient = process.env.CONTACT_RECIPIENT_EMAIL || "apexbyte63@gmail.com";
-const fromEmail = process.env.CONTACT_FROM_EMAIL || "onboarding@resend.dev";
+const resendApiKey = 're_ZG9SQzxC_3gTzujsA2NTJdhNfPPZS8Drv';
+const recipient = "cubixbyte@gmail.com";
+const fromEmail = "onboarding@resend.dev";
 
 function escapeHtml(input: string) {
   return input
@@ -96,7 +96,7 @@ export async function POST(req: NextRequest) {
       </div>`;
 
     const result = await resend.emails.send({
-      from: `ApexByte <${fromEmail}>`,
+      from: `CubixByte <${fromEmail}>`,
       to: [recipient],
       replyTo: email,
       subject,

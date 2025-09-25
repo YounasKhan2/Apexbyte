@@ -56,7 +56,7 @@ export default function Contact() {
     const body = encodeURIComponent(
       `Services: ${services.join(", ")}\nBudget: ${budget}\nTimeline: ${timeline}\n\nMessage: ${message}\n\nName: ${name}\nEmail: ${email}`
     );
-    return `mailto:apexbyte63@gmail.com?subject=${subject}&body=${body}`;
+  return `mailto:cubixbyte@gmail.com?subject=${subject}&body=${body}`;
   }, [services, budget, timeline, message, name, email]);
 
   const onSubmit = async (e: React.FormEvent) => {
@@ -180,18 +180,18 @@ export default function Contact() {
         >
           <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft md:row-start-2">
             <div className="font-heading">Contact info</div>
-            <div className="mt-2 text-sm text-slate-700"><a className="link-underline" href="mailto:apexbyte63@gmail.com">apexbyte63@gmail.com</a></div>
-            <div className="text-sm text-slate-700"><a className="link-underline" href="tel:+923130812324">+92 313 0812324</a></div>
+            <div className="mt-2 text-sm text-slate-700"><a className="link-underline" href="mailto:cubixbyte@gmail.com">cubixbyte@gmail.com</a></div>
+            <div className="text-sm text-slate-700"><a className="link-underline" href="tel:+14702028820">+1 (470) 202-8820</a></div>
             <div className="text-sm text-slate-600">Pakistan — serving clients worldwide</div>
           </div>
           <div className="grid grid-cols-3 gap-3 md:row-start-3">
-            <a className="group flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white p-3 hover:shadow-glow" href="mailto:apexbyte63@gmail.com" aria-label="Email" onClick={() => track('contact_click', { channel: 'email' })}>
+            <a className="group flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white p-3 hover:shadow-glow" href="mailto:cubixbyte@gmail.com" aria-label="Email" onClick={() => track('contact_click', { channel: 'email' })}>
               <FiMail className="h-5 w-5 text-slate-700 group-hover:text-primary" /> Email
             </a>
-            <a className="group flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white p-3 hover:shadow-glow" href="tel:+923130812324" aria-label="Phone" onClick={() => track('contact_click', { channel: 'phone' })}>
+            <a className="group flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white p-3 hover:shadow-glow" href="tel:+14702028820" aria-label="Phone" onClick={() => track('contact_click', { channel: 'phone' })}>
               <FiPhone className="h-5 w-5 text-slate-700 group-hover:text-primary" /> Call
             </a>
-            <a className="group flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white p-3 hover:shadow-glow" href="https://wa.me/923130812324?text=Hi%20ApexByte%2C%20I%27d%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" onClick={() => track('contact_click', { channel: 'whatsapp' })}>
+            <a className="group flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white p-3 hover:shadow-glow" href="https://wa.me/923130812324?text=Hi%20CubixByte%2C%20I%27d%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" onClick={() => track('contact_click', { channel: 'whatsapp' })}>
               <FiMessageCircle className="h-5 w-5 text-slate-700 group-hover:text-primary" /> WhatsApp
             </a>
           </div>

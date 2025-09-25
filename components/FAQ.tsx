@@ -50,7 +50,7 @@ export default function FAQ({ faqs = defaultFaqs }: { faqs?: FAQItem[] }) {
   const [openId, setOpenId] = useState<string | null>(null);
 
   return (
-    <div className="w-full">
+    <div className="w-full rounded-3xl bg-[#FFF8EC]">
       <div className="divide-y divide-slate-200 rounded-3xl border border-slate-200 bg-white/80 shadow-soft backdrop-blur-sm">
         {faqs.map((item) => {
           const isOpen = openId === item.id;

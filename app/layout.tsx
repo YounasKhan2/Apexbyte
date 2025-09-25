@@ -9,53 +9,53 @@ import { Suspense } from "react";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "700"], variable: "--font-poppins" });
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://apexbyte.vercel.app";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.cubixbyte.com";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL || "https://apexbyte.vercel.app"),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "ApexByte — Software Agency Pakistan | Web, Mobile, AI",
-    template: "%s | ApexByte",
+    default: "CubixByte  Web, Mobile, AI & E-commerce Solutions",
+    template: "%s | CubixByte",
   },
   description:
-    "ApexByte is a Pakistan-based premium software agency delivering Web Apps, Mobile Apps, and AI solutions for global clients.",
+    "CubixByte helps startups and enterprises build web, mobile, AI, and e-commerce products with speed and polish. Trusted by teams worldwide.",
   keywords: [
-    "software agency Pakistan",
-    "web development Lahore Karachi Islamabad",
-    "mobile app development Pakistan",
-    "AI solutions Pakistan",
+    "software agency",
+    "web development",
+    "mobile app development",
+    "AI solutions",
     "Next.js Tailwind agency",
-    "outsourcing Pakistan",
+    "outsourcing",
     "international clients",
+    "CubixByte",
   ],
   openGraph: {
     type: "website",
-    locale: "en_PK",
-    alternateLocale: ["en_US", "en_GB", "ar_AE"],
-  url: "https://apexbyte.vercel.app/",
-    siteName: "ApexByte",
-    title: "ApexByte — Pakistan Software Agency | Web • Mobile • AI",
+    locale: "en_US",
+    alternateLocale: ["en_GB", "ar_AE"],
+    url: "https://www.cubixbyte.com/",
+    siteName: "CubixByte",
+    title: "CubixByte  Web, Mobile, AI & E-commerce Solutions",
     description:
-      "Premium software agency in Pakistan building Web Apps, Mobile Apps, and AI products for international clients.",
+      "Build your next product with CubixByte. From strategy to launch, we deliver results.",
     images: [
-      { url: "/og.svg", width: 1200, height: 630, alt: "ApexByte" },
+      { url: "/og.png", width: 1200, height: 630, alt: "CubixByte" },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    site: "@apexbyte",
-    title: "ApexByte — Software Agency Pakistan",
-    description: "Web, Mobile, and AI solutions for global brands.",
-  images: ["/og.svg"],
+    site: "@cubixbyte",
+    title: "CubixByte  Web, Mobile, AI & E-commerce Solutions",
+    description: "Build your next product with CubixByte. From strategy to launch, we deliver results.",
+    images: ["/og.png"],
   },
   alternates: {
-    canonical: "https://apexbyte.vercel.app/",
-  languages: {
-    "en-PK": "/",
-    "en-US": "/",
-    "en-GB": "/",
-    "ar-AE": "/",
-  },
+    canonical: "https://www.cubixbyte.com/",
+    languages: {
+      "en-US": "/",
+      "en-GB": "/",
+      "ar-AE": "/",
+    },
   },
   robots: {
     index: true,
@@ -87,11 +87,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           imageSrcSet="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1200&auto=format&fit=crop 1200w, https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1600&auto=format&fit=crop 1600w"
           imageSizes="(max-width: 768px) 100vw, 50vw"
         />
-  <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180.png" />
+        <link rel="icon" href="/icons/cubixbyte-favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/icons/cubixbyte-logo.svg" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-  <meta name="apple-mobile-web-app-title" content="ApexByte" />
+  <meta name="apple-mobile-web-app-title" content="CubixByte" />
         <script dangerouslySetInnerHTML={{ __html: `
           if ('serviceWorker' in navigator) {
             window.addEventListener('load', function() {
@@ -118,19 +118,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              name: "ApexByte",
-              url: "https://apexbyte.vercel.app/",
-              email: "apexbyte63@gmail.com",
-              telephone: "+92 313 0812324",
+              name: "CubixByte",
+              url: "https://www.cubixbyte.com/",
+              email: "cubixbyte@gmail.com",
+              telephone: "+1 (470) 202-8820",
               sameAs: [
-                "https://www.linkedin.com/company/apexbyte",
-                "https://twitter.com/apexbyte"
+                "https://www.linkedin.com/company/cubixbyte",
+                "https://www.facebook.com/share/16vsNNkoRH/",
+                "https://www.instagram.com/cubixbyte?igsh=MTVnbXdvMGN0djJhZA%3D%3D&utm_source=qr",
+                "https://x.com/cubixbyte"
               ],
               address: {
                 "@type": "PostalAddress",
-                addressCountry: "PK",
+                addressCountry: "US",
               },
-              areaServed: ["PK", "US", "UK", "AE", "CA", "AU", "EU"],
+              areaServed: ["US", "PK", "UK", "AE", "CA", "AU", "EU"],
               makesOffer: [
                 { "@type": "Offer", itemOffered: { "@type": "Service", name: "Web App Development" } },
                 { "@type": "Offer", itemOffered: { "@type": "Service", name: "Mobile App Development" } },
@@ -146,13 +148,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              name: "ApexByte",
-              url: "https://apexbyte.vercel.app/",
+              name: "CubixByte",
+              url: "https://www.cubixbyte.com/",
               potentialAction: {
                 "@type": "SearchAction",
                 target: {
                   "@type": "EntryPoint",
-                  urlTemplate: "https://apexbyte.vercel.app/?q={search_term_string}"
+                  urlTemplate: "https://www.cubixbyte.com/?q={search_term_string}"
                 },
                 queryInput: "required name=search_term_string"
               }

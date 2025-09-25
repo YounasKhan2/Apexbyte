@@ -32,10 +32,10 @@ export default function PrivacyPage() {
         <p>We use industry-standard measures to protect your data.</p>
 
         <h2>Your rights</h2>
-        <p>Contact us at <a href="mailto:apexbyte63@gmail.com">apexbyte63@gmail.com</a> to request access, correction, or deletion.</p>
+  <p>Contact us at <a href="mailto:cubixbyte@gmail.com">cubixbyte@gmail.com</a> to request access, correction, or deletion.</p>
 
         <h2>Contact</h2>
-        <p>ApexByte — Pakistan. Email: <a href="mailto:apexbyte63@gmail.com">apexbyte63@gmail.com</a></p>
+  <p>CubixByte — USA & Pakistan. Email: <a href="mailto:cubixbyte@gmail.com">cubixbyte@gmail.com</a></p>
       </section>
     </main>
   );

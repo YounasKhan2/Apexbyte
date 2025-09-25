@@ -70,7 +70,7 @@ export default function TermsPage() {
 
       <h2>11. Contact</h2>
       <p>
-        For questions about these Terms, contact us at <a href="mailto:apexbyte63@gmail.com">apexbyte63@gmail.com</a>.
+  For questions about these Terms, contact us at <a href="mailto:cubixbyte@gmail.com">cubixbyte@gmail.com</a>.
       </p>
     </main>
   );

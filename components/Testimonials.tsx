@@ -18,12 +18,11 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section className="section" id="testimonials">
+  <section className="section" id="testimonials">
       <div className="container">
         <div className="grid gap-10 md:grid-cols-2">
           {/* Left: FAQs */}
           <div>
-            <div className="mb-2 text-xs font-medium uppercase tracking-widest text-primary">FAQ</div>
             <FAQ />
           </div>
           {/* Right: Testimonials slider */}

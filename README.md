@@ -37,7 +37,7 @@ npm start
 - Configure environment variables in a `.env.local` file:
 ```env
 RESEND_API_KEY=your_resend_api_key
-CONTACT_RECIPIENT_EMAIL=apexbyte63@gmail.com
+CONTACT_RECIPIENT_EMAIL=cubixbyte@gmail.com
 CONTACT_FROM_EMAIL=onboarding@resend.dev
 ```
 - The client posts `{ name, email, message, services, budget, timeline }`.

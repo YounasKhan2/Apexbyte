@@ -1,12 +1,38 @@
 "use client";
 import { useMemo } from "react";
 
-const items = Array.from({ length: 6 }).map((_, i) => ({
-  id: i + 1,
-  title: `Project ${i + 1}`,
-  desc: "A brief description highlighting outcome and tech.",
-  img: `/portfolio/${i + 1}.svg`,
-}));
+const items = [
+  {
+    id: 1,
+    title: "Flutter Social App",
+    desc: "Modern social network built with Flutter, featuring chat and media sharing.",
+    img: "/portfolio/flutter1.png",
+  },
+  {
+    id: 2,
+    title: "Flutter Productivity App",
+    desc: "Advanced Flutter app for productivity and collaboration.",
+    img: "/portfolio/flutter2.png",
+  },
+  {
+    id: 3,
+    title: "Portfolio Showcase",
+    desc: "Personal portfolio site with interactive case studies and testimonials.",
+    img: "/portfolio/portfo.png",
+  },
+  {
+    id: 4,
+    title: "Seminars Platform",
+    desc: "Online seminars and webinars with live Q&A and analytics.",
+    img: "/portfolio/seminars.png",
+  },
+  {
+    id: 5,
+    title: "TryRoy SaaS",
+    desc: "Subscription-based SaaS for business automation and reporting.",
+    img: "/portfolio/tryroy.png",
+  },
+];
 
 export default function Portfolio() {
   // Duplicate items to enable seamless looping
@@ -32,9 +58,9 @@ export default function Portfolio() {
             {loopItems.map((item, idx) => (
               <div
                 key={`${item.id}-${idx}`}
-                className="group relative mr-4 w-[320px] shrink-0 overflow-hidden rounded-3xl border border-slate-200 bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+                className="group relative mr-4 w-[370x] shrink-0 overflow-hidden rounded-3xl border border-slate-200 bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
               >
-                <div className="relative h-60 overflow-hidden">
+                <div className="relative h-72 overflow-hidden">
                   <img
                     loading="lazy"
                     src={item.img}

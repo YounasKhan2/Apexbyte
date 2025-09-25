@@ -1,4 +1,4 @@
-const CACHE = 'apexbyte-v3';
+const CACHE = 'cubixbyte-v1';
 const CORE_ASSETS = [
   '/',
   '/offline',

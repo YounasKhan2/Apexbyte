@@ -1,12 +1,12 @@
 {
-  "name": "ApexByte — Software Agency",
-  "short_name": "ApexByte",
+  "name": "CubixByte — Software Agency",
+  "short_name": "CubixByte",
   "start_url": "/",
   "display": "standalone",
   "scope": "/",
   "background_color": "#ffffff",
   "theme_color": "#2563EB",
-  "description": "Web, Mobile and AI solutions by ApexByte.",
+  "description": "Web, Mobile, AI & E-commerce solutions by CubixByte.",
   "icons": [
     { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
     { "src": "/icons/icon-256.png", "sizes": "256x256", "type": "image/png", "purpose": "any" },
