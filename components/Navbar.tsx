@@ -3,11 +3,12 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const navItems = [
-	{ href: "#home", label: "Home" },
-	{ href: "#services", label: "Services" },
-	{ href: "#portfolio", label: "Portfolio" },
-	{ href: "#about", label: "About" },
-	{ href: "#contact", label: "Contact" },
+	{ href: "/#home", label: "Home" },
+	{ href: "/#services", label: "Services" },
+	{ href: "/#portfolio", label: "Portfolio" },
+	{ href: "/#about", label: "About" },
+	{ href: "/#contact", label: "Contact" },
+	{ href: "/careers", label: "Careers" },
 ];
 
 export default function Navbar() {
@@ -20,6 +21,16 @@ export default function Navbar() {
 		return () => window.removeEventListener("scroll", onScroll);
 	}, []);
 
+	// Prevent background scroll when mobile menu is open
+	useEffect(() => {
+		if (open) {
+			document.body.style.overflow = "hidden";
+		} else {
+			document.body.style.overflow = "";
+		}
+		return () => { document.body.style.overflow = ""; };
+	}, [open]);
+
 	return (
 		<header
 			className={`fixed top-0 left-0 right-0 z-50 transition-all ${
@@ -30,7 +41,7 @@ export default function Navbar() {
 				className="container flex items-center justify-between py-4"
 				aria-label="Main"
 			>
-				<Link href="#home" className="flex items-center gap-2">
+				<Link href="/#home" className="flex items-center gap-2">
 					<img
 						src="/icons/cubixbyte-wordmark.svg"
 						alt="CubixByte logo"
@@ -41,7 +52,7 @@ export default function Navbar() {
 						height={36}
 					/>
 				</Link>
-				<ul className="hidden md:flex items-center gap-8 text-sm">
+				<ul className="hidden lg:flex items-center gap-6 lg:gap-8 text-sm">
 					{navItems.map((item) => (
 						<li key={item.href}>
 							<Link
@@ -53,7 +64,7 @@ export default function Navbar() {
 						</li>
 					))}
 				</ul>
-				<div className="md:hidden">
+				<div className="lg:hidden">
 					<button
 						aria-label="Menu"
 						aria-expanded={open}
@@ -67,8 +78,8 @@ export default function Navbar() {
 					</button>
 				</div>
 				<Link
-					href="#contact"
-					className="hidden md:inline-block rounded-2xl bg-slate-900 text-white px-4 py-2 hover:shadow-glow transition"
+					href="/#contact"
+					className="hidden lg:inline-block rounded-2xl bg-slate-900 text-white px-4 py-2 hover:shadow-glow transition"
 				>
 					Start a Project
 				</Link>
@@ -76,7 +87,7 @@ export default function Navbar() {
 			{open && (
 				<div
 					id="mobile-menu"
-					className="md:hidden border-t border-slate-200 bg-white/95 backdrop-blur-sm"
+					className="lg:hidden border-t border-slate-200 bg-white/95 backdrop-blur-sm"
 					aria-label="Mobile menu"
 				>
 					<div className="container py-3">
@@ -86,7 +97,7 @@ export default function Navbar() {
 									<Link
 										href={item.href}
 										onClick={() => setOpen(false)}
-										className="block rounded-xl px-3 py-2 text-slate-700 hover:bg-slate-50"
+										className="block rounded-xl px-3 py-3 text-slate-700 hover:bg-slate-50"
 									>
 										{item.label}
 									</Link>
@@ -94,9 +105,9 @@ export default function Navbar() {
 							))}
 							<li>
 								<Link
-									href="#contact"
+									href="/#contact"
 									onClick={() => setOpen(false)}
-									className="block rounded-xl bg-slate-900 text-white px-3 py-2 text-center"
+									className="block rounded-xl bg-slate-900 text-white px-3 py-3 text-center"
 								>
 									Start a Project
 								</Link>

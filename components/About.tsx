@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 export default function About() {
   return (
     <section id="about" className="section bg-surface-subtle">
-      <div className="container grid items-center gap-10 md:grid-cols-2">
+  <div className="container grid items-center gap-8 md:gap-10 lg:grid-cols-2">
         <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
           <h2 className="font-heading text-3xl md:text-4xl">About CubixByte</h2>
           <p className="mt-4 text-slate-600 max-w-prose">
@@ -26,7 +26,13 @@ export default function About() {
         </motion.div>
         <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }}>
           <div className="relative glass rounded-3xl p-8 shadow-soft">
-            <div className="h-56 rounded-2xl bg-gradient-to-br from-primary/20 to-purple/20" />
+            <img
+              src="/office.jpg"
+              alt="CubixByte office"
+              className="h-56 xs:h-60 sm:h-64 md:h-72 lg:h-80 w-full rounded-2xl object-cover"
+              loading="lazy"
+              decoding="async"
+            />
             <div className="absolute -bottom-4 -right-4 h-12 w-12 rounded-2xl bg-highlight/80 blur-md" />
           </div>
         </motion.div>

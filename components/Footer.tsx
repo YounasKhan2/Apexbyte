@@ -43,16 +43,17 @@ export default function Footer() {
               <li><a className="hover:text-slate-900" href="/#about">About</a></li>
               <li><a className="hover:text-slate-900" href="/#portfolio">Portfolio</a></li>
               <li><a className="hover:text-slate-900" href="/#contact">Contact</a></li>
+              <li><a className="hover:text-slate-900" href="/careers">Careers</a></li>
             </ul>
           </div>
 
           <div>
             <div className="font-heading mb-3">Services</div>
             <ul className="space-y-2 text-sm text-slate-600">
-              <li><a className="hover:text-slate-900" href="#services">Web Development</a></li>
-              <li><a className="hover:text-slate-900" href="#services">React Native & Flutter</a></li>
-              <li><a className="hover:text-slate-900" href="#services">Shopify & WordPress</a></li>
-              <li><a className="hover:text-slate-900" href="#services">AI Solutions</a></li>
+              <li><a className="hover:text-slate-900" href="/#services">Web Development</a></li>
+              <li><a className="hover:text-slate-900" href="/#services">React Native & Flutter</a></li>
+              <li><a className="hover:text-slate-900" href="/#services">Shopify & WordPress</a></li>
+              <li><a className="hover:text-slate-900" href="/#services">AI Solutions</a></li>
             </ul>
           </div>
 

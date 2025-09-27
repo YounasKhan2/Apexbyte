@@ -84,7 +84,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="section bg-surface-subtle">
-      <div className="container grid gap-10 md:grid-cols-2">
+  <div className="container grid gap-8 md:gap-10 lg:grid-cols-2">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
           <h2 className="font-heading text-3xl md:text-4xl">Let’s build something great</h2>
           <p className="mt-3 text-slate-600">Tell us about your goals. We’ll reply within 24 hours.</p>

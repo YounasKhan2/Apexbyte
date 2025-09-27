@@ -21,7 +21,7 @@ export default function TrustBar() {
   const looped = useMemo(() => [...brands, ...brands], []);
 
   return (
-    <section aria-label="Trusted by clients" className="bg-white py-8 md:py-10">
+  <section aria-label="Trusted by clients" className="bg-white py-6 sm:py-8 md:py-10">
       <div className="container">
         <div className="mb-4 text-center text-xs uppercase tracking-wider text-slate-500">Trusted by teams worldwide</div>
         <div className="relative overflow-hidden">

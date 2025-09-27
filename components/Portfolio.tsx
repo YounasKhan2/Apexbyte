@@ -37,7 +37,7 @@ const items = [
 export default function Portfolio() {
   // Duplicate items to enable seamless looping
   const loopItems = useMemo(() => [...items, ...items], []);
-  const cardWidth = 320; // keep existing design width
+  const cardWidth = 360; // increased width for lg screens to improve preview sizing
   const gap = 16; // px gap between cards
   const trackWidth = items.length * (cardWidth + gap); // only one set length
   const speedPxPerSec = 60; // adjust marquee speed
@@ -46,19 +46,26 @@ export default function Portfolio() {
   return (
   <section id="portfolio" className="section" aria-label="Selected work">
       <div className="container">
-        <div className="mb-10 flex items-end justify-between">
+  <div className="mb-10 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 className="font-heading text-3xl md:text-4xl">Portfolio</h2>
             <p className="text-slate-600 mt-2">Swipe or drag to explore selected work.</p>
           </div>
-          <a href="#contact" className="hidden md:inline text-sm link-underline">Work with us</a>
+          <a href="/#contact" className="hidden lg:inline text-sm link-underline">Work with us</a>
         </div>
+        {/*
+          On small screens we allow horizontal scrolling with scroll-snap.
+          On lg+ we keep the marquee animation.
+        */}
         <div className="marquee relative overflow-hidden" role="region" aria-label="Portfolio items">
-          <div className="marquee-track" style={{ animationDuration: `${duration}s` }}>
+          <div
+            className="marquee-track lg:[animation-duration:unset] flex items-stretch lg:items-center overflow-x-auto lg:overflow-visible no-scrollbar snap-x snap-mandatory lg:snap-none touch-pan-x"
+            style={{ animationDuration: `${duration}s` }}
+          >
             {loopItems.map((item, idx) => (
               <div
                 key={`${item.id}-${idx}`}
-                className="group relative mr-4 w-[85vw] max-w-xs sm:w-72 md:w-80 lg:w-[320px] shrink-0 overflow-hidden rounded-3xl border border-slate-200 bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+                className="group relative mr-4 w-[85vw] max-w-xs sm:w-72 md:w-80 lg:w-[360px] shrink-0 overflow-hidden rounded-3xl border border-slate-200 bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 snap-start"
               >
                 <div className="relative h-48 sm:h-56 md:h-64 lg:h-72 overflow-hidden">
                   <img

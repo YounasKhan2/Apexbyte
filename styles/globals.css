@@ -34,6 +34,10 @@ html, body {
   @apply py-16 sm:py-20 md:py-24 lg:py-28;
 }
 
+/* Hide scrollbars utility (keeps scroll functional) */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
 /* Respect users preferring reduced motion */
 @media (prefers-reduced-motion: reduce) {
   * {
@@ -58,4 +62,9 @@ html, body {
 }
 
 .marquee:hover .marquee-track { animation-play-state: paused; }
+
+/* On small screens prefer manual swipe/scroll over auto-marquee */
+@media (max-width: 1024px) {
+  .marquee-track { animation: none; }
+}
 

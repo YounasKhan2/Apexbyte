@@ -49,7 +49,7 @@ export default function Hero() {
 
 
   return (
-    <section id="home" className="section min-h-[85vh] flex items-center relative overflow-hidden">
+  <section id="home" className="section min-h-[75vh] md:min-h-[85vh] flex items-center relative overflow-hidden">
 
       <div className="absolute inset-0 -z-10">
         <div className="pointer-events-none absolute -top-24 -right-24 h-[520px] w-[520px] rounded-full bg-gradient-to-br from-primary/20 to-purple/20 blur-3xl animate-[pulse_7s_ease-in-out_infinite]" />
@@ -65,10 +65,10 @@ export default function Hero() {
           <circle cx="350" cy="350" r="200" stroke="url(#g1)" strokeWidth="1" />
         </svg>
       </div>
-      <div className="container grid items-center gap-12 md:grid-cols-2">
+  <div className="container grid items-center gap-8 md:gap-10 lg:gap-12 lg:grid-cols-2">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
           <div className="mb-3 text-xs font-medium uppercase tracking-widest text-primary">ApexByte • Web • Mobile • AI</div>
-          <h1 className="font-heading text-4xl leading-tight tracking-tight md:text-6xl">
+          <h1 className="font-heading text-3xl sm:text-4xl leading-tight tracking-tight lg:text-6xl">
             We craft premium
             <span className="ml-3 bg-gradient-to-r from-primary to-purple bg-clip-text text-transparent">{display}</span>
             <span className="ml-2">faster — and better</span>
@@ -84,14 +84,14 @@ export default function Hero() {
           </div>
           <div className="mt-7 flex flex-wrap gap-4">
             <a
-              href="#contact"
+              href="/#contact"
               onClick={() => track('cta_click', { source: 'hero', label: 'free_quote' })}
               className="rounded-2xl bg-slate-900 px-5 py-3 text-white shadow-glow transition-transform will-change-transform hover:-translate-y-0.5 hover:opacity-95"
             >
               Get a free quote
             </a>
             <a
-              href="#portfolio"
+              href="/#portfolio"
               onClick={() => track('cta_click', { source: 'hero', label: 'see_work' })}
               className="rounded-2xl border border-slate-200 px-5 py-3 transition-transform will-change-transform hover:-translate-y-0.5 hover:shadow-soft"
             >
@@ -101,7 +101,7 @@ export default function Hero() {
         </motion.div>
         <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.1 }} className="relative">
           <div className="relative overflow-hidden rounded-3xl ring-1 ring-slate-200/70 shadow-soft bg-white">
-            <div className="relative h-64 overflow-hidden sm:h-72 md:h-96 lg:h-[28rem]">
+            <div className="relative h-56 xs:h-60 sm:h-72 md:h-96 lg:h-[28rem] overflow-hidden">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={projIndex}

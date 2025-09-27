@@ -20,7 +20,7 @@ export default function Testimonials() {
   return (
   <section className="section" id="testimonials">
       <div className="container">
-        <div className="grid gap-10 md:grid-cols-2">
+  <div className="grid gap-8 md:gap-10 lg:grid-cols-2">
           {/* Left: FAQs */}
           <div>
             <FAQ />
