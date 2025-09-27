@@ -63,8 +63,5 @@ html, body {
 
 .marquee:hover .marquee-track { animation-play-state: paused; }
 
-/* On small screens prefer manual swipe/scroll over auto-marquee */
-@media (max-width: 1024px) {
-  .marquee-track { animation: none; }
-}
+/* Previously disabled marquee on small screens; now enabled across all breakpoints */
 

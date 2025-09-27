@@ -1,5 +1,6 @@
 "use client";
 import { useMemo } from "react";
+import { motion } from "framer-motion";
 
 const items = [
   {
@@ -37,42 +38,46 @@ const items = [
 export default function Portfolio() {
   // Duplicate items to enable seamless looping
   const loopItems = useMemo(() => [...items, ...items], []);
-  const cardWidth = 360; // increased width for lg screens to improve preview sizing
+  const cardWidth = 480; // widened lg card width for better preview
   const gap = 16; // px gap between cards
-  const trackWidth = items.length * (cardWidth + gap); // only one set length
-  const speedPxPerSec = 60; // adjust marquee speed
+  const trackWidth = items.length * (cardWidth + gap); // width of one full set
+  const speedPxPerSec = 60; // marquee speed
   const duration = trackWidth / speedPxPerSec; // seconds to move one set (50%)
 
   return (
-  <section id="portfolio" className="section" aria-label="Selected work">
+    <section id="portfolio" className="section" aria-label="Selected work">
       <div className="container">
-  <div className="mb-10 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+        <div className="mb-10 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 className="font-heading text-3xl md:text-4xl">Portfolio</h2>
-            <p className="text-slate-600 mt-2">Swipe or drag to explore selected work.</p>
+            <p className="text-slate-600 mt-2">Selected work from recent projects.</p>
           </div>
           <a href="/#contact" className="hidden lg:inline text-sm link-underline">Work with us</a>
         </div>
-        {/*
-          On small screens we allow horizontal scrolling with scroll-snap.
-          On lg+ we keep the marquee animation.
-        */}
-        <div className="marquee relative overflow-hidden" role="region" aria-label="Portfolio items">
-          <div
-            className="marquee-track lg:[animation-duration:unset] flex items-stretch lg:items-center overflow-x-auto lg:overflow-visible no-scrollbar snap-x snap-mandatory lg:snap-none touch-pan-x"
-            style={{ animationDuration: `${duration}s` }}
+
+        <div className="relative overflow-hidden" role="region" aria-label="Portfolio items">
+          {/* gradient fade edges */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-white to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-white to-transparent" />
+
+          <motion.div
+            className="flex min-w-max items-object-fit gap-4 will-change-transform"
+            initial={{ x: 0 }}
+            animate={{ x: "-50%" }}
+            transition={{ repeat: Infinity, repeatType: "loop", duration, ease: "linear" }}
+            aria-label="Portfolio marquee"
           >
             {loopItems.map((item, idx) => (
               <div
                 key={`${item.id}-${idx}`}
-                className="group relative mr-4 w-[85vw] max-w-xs sm:w-72 md:w-80 lg:w-[360px] shrink-0 overflow-hidden rounded-3xl border border-slate-200 bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 snap-start"
+                className="group relative w-[85vw] max-w-xs sm:w-72 md:w-80 lg:w-[480px] shrink-0 overflow-hidden rounded-3xl border border-slate-200 bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
               >
-                <div className="relative h-48 sm:h-56 md:h-64 lg:h-72 overflow-hidden">
+                <div className="relative h-48 sm:h-56 md:h-64 lg:h-72 overflow-hidden bg-slate-50 flex items-center justify-center">
                   <img
                     loading="lazy"
                     src={item.img}
                     alt={`${item.title} preview`}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                   />
                 </div>
                 <div className="p-4 sm:p-5">
@@ -81,9 +86,7 @@ export default function Portfolio() {
                 </div>
               </div>
             ))}
-          </div>
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-white to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-white to-transparent" />
+          </motion.div>
         </div>
       </div>
     </section>
