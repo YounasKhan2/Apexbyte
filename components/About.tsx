@@ -3,18 +3,25 @@ import { motion } from "framer-motion";
 
 export default function About() {
   return (
-  <section id="about" className="section bg-surface-subtle">
+    <section id="about" className="section bg-surface-subtle">
       <div className="container grid items-center gap-10 md:grid-cols-2">
         <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
-          <h2 className="font-heading text-3xl md:text-4xl">About us</h2>
+          <h2 className="font-heading text-3xl md:text-4xl">About CubixByte</h2>
           <p className="mt-4 text-slate-600 max-w-prose">
-            We are a senior team of designers and engineers partnering with founders and enterprises to ship polished products, faster.
-            We value clarity, craft, and measurable outcomes.
+            <b>CubixByte</b> is a next-generation software agency dedicated to building world-class web, mobile, AI, and e-commerce solutions for startups and enterprises. Our mission is to empower ambitious businesses with technology that drives real results.<br /><br />
+            Founded by a team of passionate engineers, designers, and strategists, CubixByte blends deep technical expertise with creative vision. We believe in transparency, measurable outcomes, and long-term partnerships. Every project is a collaboration—your goals become our goals.<br /><br />
+            <b>Our values:</b> <br />
+            <ul className="list-disc ml-6">
+              <li>Client-first mindset: Your success is our priority.</li>
+              <li>Craftsmanship: We obsess over quality, usability, and performance.</li>
+              <li>Innovation: We embrace new technologies to keep you ahead.</li>
+              <li>Integrity: Honest advice, clear communication, and ethical work.</li>
+            </ul>
           </p>
           <div className="mt-6 grid grid-cols-3 gap-4 text-sm">
-            <div className="rounded-2xl border border-slate-200 bg-white p-4"><div className="font-heading text-xl">50+ </div>projects shipped</div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-4"><div className="font-heading text-xl">8 yrs</div>avg experience</div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-4"><div className="font-heading text-xl">24/7</div>support window</div>
+            <div className="rounded-2xl border border-slate-200 bg-white p-4"><div className="font-heading text-xl">50+</div>projects delivered</div>
+            <div className="rounded-2xl border border-slate-200 bg-white p-4"><div className="font-heading text-xl">10+</div>expert team members</div>
+            <div className="rounded-2xl border border-slate-200 bg-white p-4"><div className="font-heading text-xl">Global</div>client base</div>
           </div>
         </motion.div>
         <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }}>
